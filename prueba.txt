@@ -1,0 +1,25 @@
+PROGRAM OrdenarNumeros;
+CONST
+  MaxNumeros = 10;
+BEGIN
+  writeln('Ingrese ', MaxNumeros, ' números:');
+  
+  FOR i := 1 to MaxNumeros do
+  BEGIN
+    write('Número ', i, ': ');
+    readln(numeros[i]);
+  END;
+
+  FOR i := 1 to MaxNumeros - 1 do
+    FOR j := i + 1 to MaxNumeros do
+      if numeros[i] > numeros[j] then
+      BEGIN
+        temp := numeros[i];
+        numeros[i] := numeros[j];
+        numeros[j] := temp;
+      END;
+
+  writeln('Números ordenados de manera ascendente:');
+  FOR i := 1 to MaxNumeros do
+    writeln(numeros[i]);
+END
